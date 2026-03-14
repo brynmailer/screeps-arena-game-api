@@ -32,7 +32,7 @@ extern "C" {
 
 impl Store {
     pub fn store_types(&self) -> Vec<ResourceType> {
-        Object::keys(self.unchecked_ref())
+        Object::keys(self.unchecked_ref::<Object>())
             .iter()
             .filter_map(|v| ResourceType::from_js_value(&v))
             .collect()
