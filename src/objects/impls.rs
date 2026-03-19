@@ -5,6 +5,7 @@ mod game_object;
 mod owned_structure;
 mod resource;
 mod source;
+mod spawning;
 mod store;
 mod structure;
 mod structure_container;
@@ -22,6 +23,7 @@ pub use self::{
     owned_structure::{OwnedStructure, OWNED_STRUCTURE_PROTOTYPE},
     resource::{Resource, RESOURCE_PROTOTYPE},
     source::{Source, SOURCE_PROTOTYPE},
+    spawning::Spawning,
     store::Store,
     structure::{Structure, STRUCTURE_PROTOTYPE},
     structure_container::{StructureContainer, STRUCTURE_CONTAINER_PROTOTYPE},

@@ -3,6 +3,7 @@ use crate::{
     game::pathfinder::Position,
     objects::{Creep, GameObject, OwnedStructure, Store, Structure},
     prelude::*,
+    Spawning,
 };
 use js_sys::{Array, Object};
 use wasm_bindgen::prelude::*;
@@ -25,6 +26,13 @@ extern "C" {
     /// [Screeps documentation](https://docs.screeps.com/api/#StructureSpawn.store)
     #[wasm_bindgen(method, getter)]
     pub fn store(this: &StructureSpawn) -> Store;
+
+    /// If the spawn is in process of spawning a new creep, this function will return
+    /// a [`Spawning`] object, or None otherwise.
+    ///
+    /// [Screeps documentation](https://docs.screeps.com/api/#StructureSpawn.spawning)
+    #[wasm_bindgen(method, getter)]
+    pub fn spawning(this: &StructureSpawn) -> Option<Spawning>;
 
     /// Create a new creep with the specified body part [`Array`], name
     /// [`JsString`], and optional spawning options. Note that successfully
@@ -50,6 +58,7 @@ impl StructureSpawn {
         }
     }
 }
+
 #[wasm_bindgen]
 extern "C" {
     #[wasm_bindgen]
